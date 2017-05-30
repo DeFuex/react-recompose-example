@@ -81,30 +81,17 @@ module.exports = function(options){
 			exclude: ['.htaccess']
 		}));
 
-		// switch (process.env.npm_lifecycle_event) {
-		// 	case 'build':
-		//
-		// 	case 'stats':
-		// 		config = merge(
-		//
-		// 		);
-		// 		break;
-		// 	default:
-		//
-		// }
-
 		return {
 			entry: {app: entry},
 			output: {
 				path: path.join(__dirname, 'build'),
-				publicPath: '/', //set publicPath: '/Blogolio/' for production else publicPath: '/'
+				publicPath: '/',
 				filename: 'static/bundle.js',
 				libraryTarget: 'umd'
 			},
 			module: {
 					// noParse: [/autoit.js/],
 		    	rules: [
-					// { test: /bootstrap\/js\//, loader: 'imports?jQuery=jquery' },
 					{
 			    		test: /\.(es6|js|jsx)$/, // Transform all .js files required somewhere within an entry point...
 			        loader: 'babel-loader', // ...with the specified loaders...
