@@ -1,0 +1,78 @@
+{
+  "name": "react-recompose-example",
+  "version": "1.0.0",
+  "description": "a simple react recompose example project",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeFuex/react-recompose-example.git"
+  },
+  "keywords": [
+    "personal",
+    "react",
+    "es6",
+    "recompose",
+    "showcase"
+  ],
+  "author": "Timo Obereder <timo.obereder@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DeFuex/react-recompose-example/issues"
+  },
+  "scripts": {
+    "start": "yarn run dev",
+    "start-prod": "yarn run prod",
+    "dev": "cross-env NODE_ENV=development node server.dev.js",
+    "prod": "cross-env NODE_ENV=production node server.prod.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress --colors",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:watch": "yarn run test -- --watch",
+    "clean": "rm -rf build",
+    "lint": "yarn run lint:js && yarn run lint:css",
+    "lint:js": "yarn run lint:eslint && yarn run lint:flow",
+    "lint:eslint": "./node_modules/eslint/bin/eslint.js --version && ./node_modules/eslint/bin/eslint.js ./app",
+    "lint:flow": "flow version && flow check",
+    "lint:css": "./node_modules/stylelint/dist/cli.js --version && ./node_modules/stylelint/dist/cli.js ./app/**/*.css",
+    "lint:staged": "lint-staged"
+  },
+  "lint-staged": {
+    "lint:eslint": "*.js",
+    "lint:flow": "*.js",
+    "lint:css": "*.css"
+  },
+  "devDependencies": {
+    "appcache-webpack-plugin": "latest",
+    "babel-core": "latest",
+    "babel-eslint": "latest",
+    "babel-loader": "latest",
+    "babel-preset-es2015": "latest",
+    "babel-preset-react": "latest",
+    "babel-preset-react-hmre": "latest",
+    "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "latest",
+    "css-loader": "latest",
+    "eslint": "latest",
+    "eslint-config-airbnb": "latest",
+    "eslint-plugin-jsx-a11y": "latest",
+    "eslint-plugin-react": "latest",
+    "file-loader": "latest",
+    "imports-loader": "latest",
+    "mocha": "latest",
+    "object.assign": "latest",
+    "react-hot-loader": "latest",
+    "react-router-dom": "^4.1.1",
+    "react-transform-hmr": "latest",
+    "redux-thunk": "^2.2.0",
+    "style-loader": "latest",
+    "url-loader": "latest",
+    "webpack": "latest",
+    "webpack-dev-server": "latest"
+  },
+  "dependencies": {
+    "react": "latest",
+    "react-dom": "latest",
+    "react-redux": "latest",
+    "react-router": "latest",
+    "redux": "latest"
+  }
+}
