@@ -14,7 +14,7 @@ module.exports = function(options){
 			path.resolve(__dirname, 'src/index.js')
 		];
 
-		cssLoaders = ExtractTextPlugin.extract('style-loader', 'css-loader'); //!postcss-loader
+		cssLoaders = ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }); //!postcss-loader
 
 		//Plugins
 		plugins = [
@@ -92,6 +92,11 @@ module.exports = function(options){
 			module: {
 					// noParse: [/autoit.js/],
 		    	rules: [
+          // {
+          //   test: /\.js$/,
+          //   enforce: 'pre',
+          //   loader: 'eslint-loader'
+          // },
 					{
 			    		test: /\.(es6|js|jsx)$/, // Transform all .js files required somewhere within an entry point...
 			        loader: 'babel-loader', // ...with the specified loaders...

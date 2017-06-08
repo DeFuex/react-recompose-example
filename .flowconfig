@@ -1,0 +1,10 @@
+[ignore]
+.*/node_modules/eslint-plugin-jsx-a11y/src/.*
+.*node_modules/graphql.*
+.*node_modules/stylelint/dist.*
+
+[include]
+
+[libs]
+
+[options]
