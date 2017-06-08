@@ -71,6 +71,8 @@
   },
   "dependencies": {
     "apollo-client": "^1.4.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "html-webpack-plugin": "^2.28.0",
     "react": "latest",
     "react-apollo": "^1.4.2",
     "react-dom": "latest",

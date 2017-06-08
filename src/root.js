@@ -11,10 +11,10 @@ const NoMatch = () => <div>404</div>
 
 const Root = () => (
 	<Router>
-		<Switch> {/* necessary cause to only render one Route exclusively */}
+		<Switch> {/* necessary cause to render one Route exclusively */}
 			<Route exact path="/" component={() => (
 					<Link to={'/DeFuex/react-recompose-example'}>
-						Blogolio Repository
+						react-recompose-example Repository
 					</Link>
 				)}
 			/>

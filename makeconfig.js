@@ -1,8 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
-// var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var AppCachePlugin = require('appcache-webpack-plugin');
-// var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 // var StaticSitePlugin = require('react-static-webpack-plugin');
 
 module.exports = function(options){
@@ -14,7 +14,7 @@ module.exports = function(options){
 			path.resolve(__dirname, 'src/index.js')
 		];
 
-		// cssLoaders = ExtractTextPlugin.extract('style-loader', 'css-loader'); //!postcss-loader
+		cssLoaders = ExtractTextPlugin.extract('style-loader', 'css-loader'); //!postcss-loader
 
 		//Plugins
 		plugins = [
@@ -25,23 +25,23 @@ module.exports = function(options){
 					warnings: false
 				}
 			}),
-			// new HtmlWebpackPlugin({
-			// 	template: 'index.html',
-			// 	minify: {
-			// 			removeComments: true,
-	    //     	collapseWhitespace: true,
-	    //     	removeRedundantAttributes: true,
-	    //     	useShortDoctype: true,
-	    //     	removeEmptyAttributes: true,
-	    //     	removeStyleLinkTypeAttributes: true,
-	    //     	keepClosingSlash: true,
-	    //     	minifyJS: true,
-	    //     	minifyCSS: true,
-	    //     	minifyURLs: true
-			// 	},
-			// 	inject: true
-			// }),
-			// new ExtractTextPlugin('src/css/blogolio.css'),
+			new HtmlWebpackPlugin({
+				template: 'index.html',
+				minify: {
+						removeComments: true,
+	        	collapseWhitespace: true,
+	        	removeRedundantAttributes: true,
+	        	useShortDoctype: true,
+	        	removeEmptyAttributes: true,
+	        	removeStyleLinkTypeAttributes: true,
+	        	keepClosingSlash: true,
+	        	minifyJS: true,
+	        	minifyCSS: true,
+	        	minifyURLs: true
+				},
+				inject: true
+			}),
+			new ExtractTextPlugin('src/css/bundle.css'),
 			new webpack.DefinePlugin({
 				'process.env': {
 					NODE_ENV: JSON.stringify('production')
@@ -66,10 +66,10 @@ module.exports = function(options){
 
 			plugins = [
 				new webpack.HotModuleReplacementPlugin(), //for hot reloading
-				// new HtmlWebpackPlugin({
-				// 	template: 'index.html',
-				// 	inject: true
-				// }),
+				new HtmlWebpackPlugin({
+					template: 'index.html',
+					inject: true
+				})
 				// new webpack.ProvidePlugin({
 				// 	$: 'jquery',
 				// 	jQuery: 'jquery'
@@ -114,7 +114,8 @@ module.exports = function(options){
 							test: /\.(eot|woff|woff2|svg)(\?\S*)?$/,
       				loader: 'file-loader?limit=10000&mimetype=image&name=[path][name].[ext]'
 							//don't exclude node_modules since file loader takes .eot files from bootstrap in node_modules
-    			}
+    			},
+
 				]
 		  },
 		  plugins: plugins,
