@@ -70,10 +70,12 @@
     "webpack-dev-server": "latest"
   },
   "dependencies": {
+    "apollo-client": "^1.4.0",
     "react": "latest",
+    "react-apollo": "^1.4.2",
     "react-dom": "latest",
     "react-redux": "latest",
-    "react-router": "latest",
+    "react-router": "^3.0.0",
     "redux": "latest"
   }
 }
