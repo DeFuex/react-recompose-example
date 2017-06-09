@@ -5,11 +5,11 @@ import {
   Link,
 	Switch,
 } from 'react-router-dom';
-import Commit from './components/Commit';
+import Commits from './components/Commits';
 
-const NoMatch = () => <div>404</div>
+const NoMatch : Function = () => <div>404</div>
 
-const Root = () => (
+const Root : Function = () => (
 	<Router>
 		<Switch> {/* necessary cause to render one Route exclusively */}
 			<Route exact path="/" component={() => (
@@ -18,7 +18,7 @@ const Root = () => (
 					</Link>
 				)}
 			/>
-			<Route path="/:owner/:repo" component={Commit} />
+			<Route path="/:owner/:repo" component={Commits} />
 			<Route component={NoMatch}/>
 		</Switch>
 	</Router>
