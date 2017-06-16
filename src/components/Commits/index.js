@@ -52,7 +52,9 @@ const renderCommits : Function = (
   )
 );
 
-const Commits : Function = props => (
+const Commits : Function = ({
+  ...props,
+}) => (
   <div>
     {renderCommits(props.data.github.repo.commits)}
   </div>

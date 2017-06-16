@@ -5,6 +5,7 @@ import {
   Link,
 	Switch,
 } from 'react-router-dom';
+import Search from './components/Search';
 import Commits from './components/Commits';
 
 const NoMatch : Function = () => <div>404</div>
@@ -12,11 +13,7 @@ const NoMatch : Function = () => <div>404</div>
 const Root : Function = () => (
 	<Router>
 		<Switch> {/* necessary cause to render one Route exclusively */}
-			<Route exact path="/" component={() => (
-					<Link to={'/DeFuex/react-recompose-example'}>
-						react-recompose-example Repository
-					</Link>
-				)}
+			<Route exact path="/" component={Search}
 			/>
 			<Route path="/:owner/:repo" component={Commits} />
 			<Route component={NoMatch}/>
