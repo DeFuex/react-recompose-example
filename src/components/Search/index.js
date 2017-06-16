@@ -21,9 +21,10 @@ const withExtendedHandlers : Function = withHandlers({
   },
   handleKeyPress : ({
     repo,
+    ...props,
   } : SearchPropsInner) : Function => (event : SyntheticInputEvent) : void => {
     if(event.key == 'Enter'){
-      console.log('enter press here! ', repo);
+      props.history.push(`/DeFuex/${repo}`);
     }
   },
 });
