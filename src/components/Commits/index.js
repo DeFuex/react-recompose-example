@@ -33,6 +33,8 @@ const withRequestToProps : Function = graphql(RepoQuery, {
 const withLoading : Function = Component => props => {
   if (props.data.loading) {
     return <div>Loading Repo Commits …</div>;
+  } else if (props.data.error !== undefined) {
+    return <div>Repository does not exist :(</div>;
   }
   return <Component {...props} />;
 };
