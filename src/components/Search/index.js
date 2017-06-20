@@ -5,7 +5,8 @@ import {
   withState,
   withHandlers,
 } from 'recompose';
-
+import styles from './styles.css';
+console.log(styles);
 import type SearchProps from './typings.js';
 
 type SearchPropsInner = SearchProps;
@@ -42,7 +43,7 @@ const Search : Function = ({
       onKeyUp={handleKeyPress}
     />
     <Link to={`/DeFuex/${repo}`}>
-      {repo} Repository
+      <p className={styles.Title}>{repo} Repository</p>
     </Link>
   </div>
 )

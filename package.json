@@ -20,7 +20,7 @@
     "url": "https://github.com/DeFuex/react-recompose-example/issues"
   },
   "scripts": {
-    "start": "yarn run dev",
+    "start": "webpack-dev-server --config makeconfig.js --env development",
     "start-prod": "yarn run prod",
     "dev": "cross-env NODE_ENV=development node server.dev.js",
     "prod": "cross-env NODE_ENV=production node server.prod.js",
@@ -66,8 +66,9 @@
     "redux-thunk": "^2.2.0",
     "style-loader": "latest",
     "url-loader": "latest",
-    "webpack": "latest",
-    "webpack-dev-server": "latest"
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "latest",
+    "webpack-merge": "^4.1.0"
   },
   "dependencies": {
     "apollo-client": "^1.4.0",
