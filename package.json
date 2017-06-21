@@ -60,6 +60,7 @@
     "mocha": "latest",
     "object.assign": "latest",
     "react-hot-loader": "latest",
+    "react-materialize": "^1.0.1",
     "react-router-dom": "^4.1.1",
     "react-transform-hmr": "latest",
     "recompose": "latest",

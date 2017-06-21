@@ -55,18 +55,12 @@ const commonConfig = {
     ],
   },
   plugins: [
-    new AppCachePlugin({
-      exclude: ['.htaccess']
-    }),
     new HtmlWebpackPlugin({
       template: 'index.html',
       inject: true
     }),
   ],
-  target: 'web', // Make web variables accessible to webpack, e.g. window
   stats: false, // Don't show stats in the console
-  // progress: true
-  // quiet: true
 };
 
 const productionConfig = {
@@ -88,6 +82,9 @@ const productionConfig = {
     ],
   },
   plugins: [
+		new AppCachePlugin({
+			exclude: ['.htaccess']
+		}),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false

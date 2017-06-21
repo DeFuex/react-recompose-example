@@ -1,0 +1,14 @@
+.Item {
+  font-size: 1rem;
+  padding: 10px 0;
+  background: /* gradient can be an image */
+  linear-gradient(to left, #E57A7E 0%, #EDD1E5 100%)
+  left
+  bottom
+  no-repeat;
+  background-size: 100% 1px ;/* if linear-gradient, we need to resize it */
+}
+
+.Item:nth-last-child(1) {
+  background-size: 0px;
+}

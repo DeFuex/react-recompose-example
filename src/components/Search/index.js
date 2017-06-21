@@ -6,7 +6,6 @@ import {
   withHandlers,
 } from 'recompose';
 import styles from './styles.css';
-console.log(styles);
 import type SearchProps from './typings.js';
 
 type SearchPropsInner = SearchProps;
@@ -35,15 +34,17 @@ const Search : Function = ({
   handleInputValue,
   handleKeyPress,
 } : SearchPropsInner) : React.Element<any> => (
-  <div>
+  <div className={styles.Wrapper}>
+    <span className={styles.Title}>Github Owner: DeFuex</span>
     <input
+      className={styles.Input}
       type={'text'}
       maxLength={40}
       onChange={handleInputValue}
       onKeyUp={handleKeyPress}
     />
-    <Link to={`/DeFuex/${repo}`}>
-      <p className={styles.Title}>{repo} Repository</p>
+    <Link className={styles.Link} to={`/DeFuex/${repo}`}>
+      {repo} Repository
     </Link>
   </div>
 )

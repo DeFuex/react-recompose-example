@@ -1,0 +1,27 @@
+.Wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  justify-content: center;
+  padding: 20px 0 0;
+}
+
+.Title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  background-image: linear-gradient(0deg, #FACE75 0%, #F1E57A 100%); /* Standard syntax; must be last */
+  background-image: -webkit-linear-gradient(0deg, #FACE75 0%, #F1E57A 100%); /* For Chrome and Safari */
+  background-image: -moz-linear-gradient(0deg, #FACE75 0%, #F1E57A 100%); /* For old Fx (3.6 to 15) */
+  background-image: -ms-linear-gradient(0deg, #FACE75 0%, #F1E57A 100%); /* For pre-releases of IE 10*/
+  background-image: -o-linear-gradient(0deg, #FACE75 0%, #F1E57A 100%); /* For old Opera (11.1 to 12.0) */
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.Collection {
+  list-style-type: none;
+  padding: 0 20px;
+  box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+}

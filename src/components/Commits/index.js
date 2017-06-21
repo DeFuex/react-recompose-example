@@ -3,6 +3,7 @@ import { gql, graphql } from 'react-apollo';
 import { compose } from 'recompose';
 import { withRouter } from 'react-router-dom';
 import Commit from './Commit';
+import styles from './styles.css';
 
 type CommitsMapItem = {
   sha      : string,
@@ -57,8 +58,11 @@ const renderCommits : Function = (
 const Commits : Function = ({
   ...props,
 }) => (
-  <div>
-    {renderCommits(props.data.github.repo.commits)}
+  <div className={styles.Wrapper}>
+    <span className={styles.Title}>Commits in {props.data.variables.repo}</span>
+    <ul className={styles.Collection}>
+      {renderCommits(props.data.github.repo.commits)}
+    </ul>
   </div>
 );
 
