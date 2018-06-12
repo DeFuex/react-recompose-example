@@ -41,21 +41,27 @@
     "lint:css": "*.css"
   },
   "devDependencies": {
-    "appcache-webpack-plugin": "latest",
+    "appcache-webpack-plugin": "1.4.0",
+    "babel-cli": "6.26.0",
     "babel-core": "latest",
     "babel-eslint": "latest",
     "babel-loader": "latest",
-    "babel-preset-es2015": "latest",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "latest",
+    "babel-preset-flow": "6.23.0",
     "babel-preset-react": "latest",
     "babel-preset-react-hmre": "latest",
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "latest",
     "css-loader": "latest",
-    "eslint": "latest",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "latest",
+    "eslint-plugin-flowtype": "^2.49.3",
     "eslint-plugin-jsx-a11y": "latest",
-    "eslint-plugin-react": "latest",
+    "eslint-plugin-react": "^7.9.1",
     "file-loader": "latest",
+    "flow-bin": "^0.74.0",
     "imports-loader": "latest",
     "mocha": "latest",
     "object.assign": "latest",
@@ -65,11 +71,19 @@
     "react-transform-hmr": "latest",
     "recompose": "latest",
     "redux-thunk": "^2.2.0",
+    "standard": "11.0.1",
     "style-loader": "latest",
     "url-loader": "latest",
-    "webpack": "^2.6.1",
-    "webpack-dev-server": "latest",
+    "webpack": "3.5.3",
+    "webpack-cli": "^3.0.3",
+    "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.0"
+  },
+  "standard": {
+    "plugins": [
+      "flowtype"
+    ],
+    "parser": "babel-eslint"
   },
   "dependencies": {
     "apollo-client": "^1.4.0",

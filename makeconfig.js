@@ -16,16 +16,16 @@ const commonConfig = {
   module: {
     // noParse: [/autoit.js/],
     rules: [
-      // {
-      //   test: /\.js$/,
-      //   enforce: 'pre',
-      //   loader: 'eslint-loader'
-      // },
       {
         test: /\.(es6|js|jsx)$/, // Transform all .js files required somewhere within an entry point...
         loader: 'babel-loader', // ...with the specified loaders...
         exclude: /node_modules/ // ...except for the node_modules folder.
       },
+      // {
+      // test: /\.js$/,
+      // loader: 'eslint-loader',
+      // exclude: /node_modules/
+      // },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',

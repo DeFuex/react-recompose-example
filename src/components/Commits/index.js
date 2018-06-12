@@ -1,9 +1,12 @@
+// @flow
+
 import React from 'react';
 import { gql, graphql } from 'react-apollo';
 import { compose } from 'recompose';
 import { withRouter } from 'react-router-dom';
 import Commit from './Commit';
 import styles from './styles.css';
+// import withRequestToGithub from './withRequestToGithub';
 
 type CommitsMapItem = {
   sha      : string,
@@ -11,10 +14,10 @@ type CommitsMapItem = {
 };
 
 const RepoQuery : Function = gql`
-  query RepoQuery($owner: String!, $repo: String!) {
+  query RepoQuery($owner: String!, $repo: String!, $commitsNumber: Int) {
     github {
       repo(ownerUsername: $owner, name: $repo) {
-        commits(limit: 5) {
+        commits(limit: $commitsNumber) {
           sha
           message
         }
@@ -22,16 +25,18 @@ const RepoQuery : Function = gql`
     }
   }`;
 
-const withRequestToProps : Function = graphql(RepoQuery, {
+const withRequestToGithub : Function = graphql(RepoQuery, {
   options: props => ({
     variables: {
       owner: props.match.params.owner,
-      repo: props.match.params.repo
+      repo: props.match.params.repo,
+      commitsNumber: parseInt(props.location.state.commitsNumber)
     }
   })
 });
 
 const withLoading : Function = Component => props => {
+  console.log(props.commitsNumber);
   if (props.data.loading) {
     return <div>Loading Repo Commits …</div>;
   } else if (props.data.error !== undefined) {
@@ -42,11 +47,11 @@ const withLoading : Function = Component => props => {
 
 const renderCommits : Function = (
   commits : Array<CommitsMapItem>,
-) : Array<React.Element<any>> => commits.map(({
+) : Array<any> => commits.map(({
   id,
   sha,
   message,
-} : CommitsMapItem) : React.Element<any> => (
+} : CommitsMapItem) : any => (
     <Commit
       key={sha}
       sha={sha}
@@ -56,8 +61,9 @@ const renderCommits : Function = (
 );
 
 const Commits : Function = ({
-  ...props,
+  ...props
 }) => (
+  console.log(props),
   <div className={styles.Wrapper}>
     <span className={styles.Title}>Commits in {props.data.variables.repo}</span>
     <ul className={styles.Collection}>
@@ -66,8 +72,10 @@ const Commits : Function = ({
   </div>
 );
 
+// const GithubComponent = withRequestToGithub(Commits);
+
 export default compose(
   withRouter,
-  withRequestToProps,
+  withRequestToGithub,
   withLoading
 )(Commits);
