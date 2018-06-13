@@ -22,6 +22,21 @@
   border-bottom: solid 2px #969696;
 }
 
+.InputOwner {
+  border: none;
+  font-size: 3rem;
+  text-transform: uppercase;
+  background-image: linear-gradient(0deg, #FACE75 0%, #F1E57A 100%); /* Standard syntax; must be last */
+  background-image: -webkit-linear-gradient(0deg, #FACE75 0%, #F1E57A 100%); /* For Chrome and Safari */
+  background-image: -moz-linear-gradient(0deg, #FACE75 0%, #F1E57A 100%); /* For old Fx (3.6 to 15) */
+  background-image: -ms-linear-gradient(0deg, #FACE75 0%, #F1E57A 100%); /* For pre-releases of IE 10*/
+  background-image: -o-linear-gradient(0deg, #FACE75 0%, #F1E57A 100%); /* For old Opera (11.1 to 12.0) */
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+}
+
 .Title {
   font-size: 3rem;
   text-transform: uppercase;

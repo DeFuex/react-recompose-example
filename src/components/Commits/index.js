@@ -6,34 +6,34 @@ import { compose } from 'recompose';
 import { withRouter } from 'react-router-dom';
 import Commit from './Commit';
 import styles from './styles.css';
-// import withRequestToGithub from './withRequestToGithub';
+import withRequestToGithub from './withRequestToGithub';
 
 type CommitsMapItem = {
   sha      : string,
   message? : string,
 };
 
-const RepoQuery : Function = gql`
-  query RepoQuery($owner: String!, $repo: String!, $commitsNumber: Int) {
-    github {
-      repo(ownerUsername: $owner, name: $repo) {
-        commits(limit: $commitsNumber) {
-          sha
-          message
-        }
-      }
-    }
-  }`;
+// const RepoQuery : Function = gql`
+//   query RepoQuery($owner: String!, $repo: String!, $commitsNumber: Int) {
+//     github {
+//       repo(ownerUsername: $owner, name: $repo) {
+//         commits(limit: $commitsNumber) {
+//           sha
+//           message
+//         }
+//       }
+//     }
+//   }`;
 
-const withRequestToGithub : Function = graphql(RepoQuery, {
-  options: props => ({
-    variables: {
-      owner: props.match.params.owner,
-      repo: props.match.params.repo,
-      commitsNumber: parseInt(props.location.state.commitsNumber)
-    }
-  })
-});
+// const withRequestToGithub : Function = graphql(RepoQuery, {
+//   options: props => ({
+//     variables: {
+//       owner: props.match.params.owner,
+//       repo: props.match.params.repo,
+//       commitsNumber: parseInt(props.location.state.commitsNumber)
+//     }
+//   })
+// });
 
 const withLoading : Function = Component => props => {
   console.log(props.commitsNumber);
